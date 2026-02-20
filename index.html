@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajesh & Manish Wedding Countdown</title>
+
+<style>
+body{
+  margin:0;
+  text-align:center;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #5a0000, #b8860b);
+  color:white;
+  padding:40px 20px;
+}
+
+h1{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+h2{
+  font-weight:normal;
+  margin-bottom:30px;
+}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.box{
+  background:white;
+  color:#800000;
+  padding:25px;
+  border-radius:20px;
+  width:110px;
+  box-shadow:0 0 20px gold;
+  transition:0.3s;
+}
+
+.box:hover{
+  transform:scale(1.1);
+}
+
+.number{
+  font-size:32px;
+  font-weight:bold;
+}
+
+.label{
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Rajesh ❤️ Manish</h1>
+<h2>⏳ The Sacred Muhurtam Begins In ⏳</h2>
+
+<div class="countdown">
+  <div class="box">
+    <div id="days" class="number"></div>
+    <div class="label">Days</div>
+  </div>
+  <div class="box">
+    <div id="hours" class="number"></div>
+    <div class="label">Hours</div>
+  </div>
+  <div class="box">
+    <div id="minutes" class="number"></div>
+    <div class="label">Minutes</div>
+  </div>
+  <div class="box">
+    <div id="seconds" class="number"></div>
+    <div class="label">Seconds</div>
+  </div>
+</div>
+
+<script>
+var countDownDate = new Date("Mar 5, 2026 22:35:00 GMT+0530").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("days").innerHTML = days;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("minutes").innerHTML = minutes;
+  document.getElementById("seconds").innerHTML = seconds;
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.body.innerHTML = "<h1>💍 The Wedding Has Begun! 💍</h1>";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
